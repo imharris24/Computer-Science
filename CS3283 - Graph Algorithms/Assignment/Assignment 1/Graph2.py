@@ -1,3 +1,7 @@
+# MUHAMMAD HARRIS - BCS203193
+# Graph Algorithm Assignment 1
+# GRAPH 2
+
 # libraries
 import os
 import networkx
@@ -35,12 +39,12 @@ def printEdgeList(graph):
     input('\n\npress enter to return...')
 def printCountConnectedComponents(graph):
     os.system('cls')
-    count = networkx.number_connected_components(graph) # get number of connected components
+    count = networkx.number_strongly_connected_components(graph) # get number of connected components
     print('Number of Connected Components in Graph: ', count) # print count
     input('\npress enter to return...')
 def printConnectedComponents(graph):
     os.system('cls')
-    connectedComponents = [len(c) for c in sorted(networkx.connected_components(graph), key=len, reverse=True)] # get connected components
+    connectedComponents = [len(c) for c in sorted(networkx.strongly_connected_components(graph), key=len, reverse=True)] # get connected components
     print('Length of Connected Components in Sorted Order:')
     for x in connectedComponents: 
         print(x) # print length of each connected component
@@ -54,15 +58,20 @@ def printIncidenceMatrix(graph):
     input('\npress enter to return...')
 def printNodeDegrees(graph):
     os.system('cls')
-    print('Degree of all Nodes in Graph:')
+    print('in-Degree of all Nodes in Graph:')
     nodeN = 'a'
     for x in range(6):
-        print(nodeN, ' = ', graph.degree(nodeN)) # print degree of each node
+        print(nodeN, ' = ', graph.in_degree(nodeN)) # print degree of each node
+        nodeN = chr(ord(nodeN)+1)
+    print('out-Degree of all Nodes in Graph:')
+    nodeN = 'a'
+    for x in range(6):
+        print(nodeN, ' = ', graph.out_degree(nodeN)) # print degree of each node
         nodeN = chr(ord(nodeN)+1)
     input('\npress enter to return...')
 def printCountEdges(graph):
     os.system('cls')
-    print('Number of Edges in Graph: ', networkx.number_of_edges(graph)) # print number of edges in graph
+    print('Number of Edges in Graph (parallel edges ignored): ', networkx.number_of_edges(graph)) # print number of edges in graph
     input('\npress enter to return...')
 def visualizeGraph(graph):
     os.system('cls')
@@ -156,5 +165,4 @@ while True:
         printHasEulerPath(graphTwo)
         printHamiltonPath(graphTwo)
         printGraphTraversals(graphTwo)
-
-    # fix 3 4 and degree option
+        
