@@ -1,3 +1,7 @@
+# MUHAMMAD HARRIS - BCS203193
+# Graph Algorithm Assignment 1
+# GRAPH 1
+
 # libraries
 import os
 import networkx
@@ -164,3 +168,4 @@ while True:
         printHasEulerPath(graphOne)
         printHamiltonPath(graphOne)
         printGraphTraversals(graphOne)
+        
